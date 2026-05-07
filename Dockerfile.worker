@@ -1,11 +1,18 @@
-# FFmpeg Worker - Alpine based
+# Build Stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY worker/package*.json ./
+RUN npm ci
+COPY worker/ ./
+RUN npm run build && npm prune --production
+
+# Runtime Stage
 FROM alpine:3.18
 RUN apk add --no-cache ffmpeg nodejs npm
 RUN addgroup -g 1001 -S workergroup && adduser -S worker -u 1001
 WORKDIR /app
-# We will copy worker code here later
-# COPY worker/package*.json ./
-# RUN npm ci --production
-# COPY worker/src ./src
+COPY --from=builder --chown=worker:workergroup /app/node_modules ./node_modules
+COPY --from=builder --chown=worker:workergroup /app/dist ./dist
+COPY --from=builder --chown=worker:workergroup /app/package*.json ./
 USER worker
-CMD ["node", "src/main.js"]
+CMD ["node", "dist/main.js"]
