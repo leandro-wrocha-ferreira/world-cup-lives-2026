@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "linear": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@jeromefitz/mcp-server-linear"
+      ],
+      "env": {
+        "LINEAR_API_KEY": "<LINEAR_API_KEY>"
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "<GITHUB_PAT>"
+      }
+    },
+    "smtp": {
+      "command": "node",
+      "args": [
+        ".agents/smtp-mcp.js"
+      ],
+      "env": {
+        "SMTP_HOST": "smtp.gmail.com",
+        "SMTP_PORT": "587",
+        "SMTP_SECURE": "false",
+        "SMTP_USER": "leandro.wrocha.ferreira@gmail.com",
+        "SMTP_PASS": "<SMTP_APP_PASSWORD>"
+      }
+    }
+  }
+}
