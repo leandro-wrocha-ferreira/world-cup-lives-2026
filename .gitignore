@@ -1,1 +1,9 @@
+# env files
+.env
+
+# node modules
 backend/node_modules
+
+# workflow
+.agents/
+scratch/
