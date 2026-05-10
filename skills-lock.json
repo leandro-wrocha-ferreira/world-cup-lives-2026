@@ -13,59 +13,17 @@
       "skillPath": "skills/clean-ddd-hexagonal/SKILL.md",
       "computedHash": "b9a54e257685086d0034bd8277964452b7208e2f18bf68d158996936ce667b6a"
     },
-    "create-implementation-plan": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "skillPath": "skills/create-implementation-plan/SKILL.md",
-      "computedHash": "4764bacd34af8e5c27a85ca01a90197afcf1f1ed1785975ba91d9b80dff60e2d"
-    },
     "docker-expert": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",
       "skillPath": "skills/docker-expert/SKILL.md",
-      "computedHash": "7a0cf3e3a5f8d18ddb452c784ac965aa40b1bfa2a736c5689d252328f18017d1"
-    },
-    "laravel-patterns": {
-      "source": "affaan-m/everything-claude-code",
-      "sourceType": "github",
-      "skillPath": "skills/laravel-patterns/SKILL.md",
-      "computedHash": "c56253bf241431910bd23fa1e04f72eae90af8ae744843b57c21f5f8fd9152c2"
-    },
-    "laravel-security": {
-      "source": "affaan-m/everything-claude-code",
-      "sourceType": "github",
-      "skillPath": "skills/laravel-security/SKILL.md",
-      "computedHash": "83f5d1d663a9e51bed330ec1d790eb45c943ba8255d70500e42e9eedd9a5fe55"
-    },
-    "laravel-specialist": {
-      "source": "jeffallan/claude-skills",
-      "sourceType": "github",
-      "skillPath": "skills/laravel-specialist/SKILL.md",
-      "computedHash": "d58e2ed3488398cb94a039f25b9d270e55dc434e16102abff9035608bec3db90"
-    },
-    "laravel-tdd": {
-      "source": "iserter/laravel-claude-agents",
-      "sourceType": "github",
-      "skillPath": "skills/laravel-tdd/SKILL.md",
-      "computedHash": "f895a09949a45fb610d8f033c168fc7ed70ef33323c38ef176add410ddd58e8e"
+      "computedHash": "0974b5f64fcd284c1bd662810e2388f7beb9be6784c597de4d0ad4213ccbd6af"
     },
     "multi-stage-dockerfile": {
       "source": "github/awesome-copilot",
       "sourceType": "github",
       "skillPath": "skills/multi-stage-dockerfile/SKILL.md",
       "computedHash": "698bf93a84dae18fd7bd0b1d35c21427307fde78fbdf4624be9726f5f98189ca"
-    },
-    "mysql": {
-      "source": "planetscale/database-skills",
-      "sourceType": "github",
-      "skillPath": "skills/mysql/SKILL.md",
-      "computedHash": "6cb0725d61db4940f9eab79436753fe4ecb261f57ae8a08b2ac28676f82cbecc"
-    },
-    "update-implementation-plan": {
-      "source": "github/awesome-copilot",
-      "sourceType": "github",
-      "skillPath": "skills/update-implementation-plan/SKILL.md",
-      "computedHash": "b2f2a6bf2544b416b9145e805c0f534ad078e7135c1ce26e73af1b0cd99cb692"
     }
   }
 }
