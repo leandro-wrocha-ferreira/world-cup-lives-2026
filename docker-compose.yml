@@ -1,6 +1,34 @@
 version: '3.8'
 
 services:
+  # API Backend (NestJS)
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "3000:3000"
+    environment:
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+      MINIO_ENDPOINT: "minio"
+      MINIO_PORT: "9000"
+      MINIO_ACCESS_KEY: "admin"
+      MINIO_SECRET_KEY: "password123"
+      CASSANDRA_CONTACT_POINTS: "cassandra"
+      CASSANDRA_LOCAL_DATACENTER: "DC1"
+      CASSANDRA_KEYSPACE: "cdn_metadata"
+    depends_on:
+      - rabbitmq
+      - minio
+      - cassandra
+    networks:
+      - cdn-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
   # Edge CDN Simulation (Nginx)
   nginx-edge:
     image: nginx:alpine
@@ -53,8 +81,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
-          memory: 1024M
+          cpus: '2.0'
 
   # Message Broker (RabbitMQ)
   rabbitmq:
@@ -69,6 +96,32 @@ services:
         limits:
           cpus: '0.5'
           memory: 512M
+
+  # Video Processing Worker (FFmpeg Transcoding)
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    environment:
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+      MINIO_ENDPOINT: "minio"
+      MINIO_PORT: "9000"
+      MINIO_ACCESS_KEY: "admin"
+      MINIO_SECRET_KEY: "password123"
+      CASSANDRA_CONTACT_POINTS: "cassandra"
+      CASSANDRA_LOCAL_DATACENTER: "DC1"
+      CASSANDRA_KEYSPACE: "cdn_metadata"
+    depends_on:
+      - rabbitmq
+      - minio
+      - cassandra
+    networks:
+      - cdn-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
 
 networks:
   cdn-network:

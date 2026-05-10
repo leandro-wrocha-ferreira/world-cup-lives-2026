@@ -12,3 +12,6 @@ scratch/
 # implementation plans
 plan/
 plans/
+
+# applications
+worker/dist/
