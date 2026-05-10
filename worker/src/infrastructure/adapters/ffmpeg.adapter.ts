@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ITranscoderPort } from '../../application/ports/transcoder.port';
-import * as ffmpeg from 'fluent-ffmpeg';
 import * as path from 'path';
 import * as fs from 'fs/promises';
+
+const ffmpeg = require('fluent-ffmpeg');
 
 @Injectable()
 export class FFmpegAdapter implements ITranscoderPort {
@@ -25,7 +26,7 @@ export class FFmpegAdapter implements ITranscoderPort {
           const files = await fs.readdir(outputDir);
           resolve(files.map(f => path.join(outputDir, f)));
         })
-        .on('error', (err) => {
+        .on('error', (err: Error) => {
           reject(err);
         })
         .run();
@@ -51,10 +52,11 @@ export class FFmpegAdapter implements ITranscoderPort {
           const files = await fs.readdir(outputDir);
           resolve(files.map(f => path.join(outputDir, f)));
         })
-        .on('error', (err) => {
+        .on('error', (err: Error) => {
           reject(err);
         })
         .run();
     });
   }
 }
+

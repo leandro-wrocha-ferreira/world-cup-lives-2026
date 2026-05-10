@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { ITranscoderPort } from '../ports/transcoder.port';
-import { IStoragePort } from '../ports/storage.port';
-import { IMetadataPort } from '../ports/metadata.port';
+import type { ITranscoderPort } from '../ports/transcoder.port';
+import type { IStoragePort } from '../ports/storage.port';
+import type { IMetadataPort } from '../ports/metadata.port';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 

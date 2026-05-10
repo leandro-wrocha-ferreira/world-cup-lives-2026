@@ -3,7 +3,6 @@ import { IStoragePort } from '../../application/ports/storage.port';
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 import * as fs from 'fs';
 import * as path from 'path';
-import { streamToString } from './stream-helper'; // we can just pipe
 
 @Injectable()
 export class MinioAdapter implements IStoragePort {
