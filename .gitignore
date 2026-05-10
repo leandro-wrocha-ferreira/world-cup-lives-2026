@@ -8,3 +8,6 @@ worker/node_modules
 # workflow
 .agents/
 scratch/
+
+# implementation plans
+plan/**/*
