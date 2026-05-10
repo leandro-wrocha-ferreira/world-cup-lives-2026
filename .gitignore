@@ -10,4 +10,5 @@ worker/node_modules
 scratch/
 
 # implementation plans
-plan/**/*
+plan/
+plans/
